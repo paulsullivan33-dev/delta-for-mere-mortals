@@ -1,0 +1,48 @@
+$ delta --show-config   # no configuration anywhere: the defaults
+    commit-style                  = raw
+    file-style                    = [34mblue[0m
+    hunk-header-style             = syntax
+    minus-style                   = [48;5;52mnormal 52[0m
+    minus-non-emph-style          = [48;5;52mnormal 52[0m
+    minus-emph-style              = [48;5;124mnormal 124[0m
+    minus-empty-line-marker-style = [48;5;52mnormal 52[0m
+    zero-style                    = syntax
+    plus-style                    = [48;5;22msyntax 22[0m
+    plus-non-emph-style           = [48;5;22msyntax 22[0m
+    plus-emph-style               = [48;5;28msyntax 28[0m
+    plus-empty-line-marker-style  = [48;5;22mnormal 22[0m
+    grep-file-style               = [35mpurple[0m
+    grep-line-number-style        = [32mgreen[0m
+    whitespace-error-style        = [7;35mreverse purple[0m
+    blame-palette                 = [48;5;16m#000000[0m [48;5;235m#222222[0m [48;5;238m#444444[0m
+    true-color                    = false
+    file-added-label              = 'added:'
+    file-modified-label           = ''
+    file-removed-label            = 'removed:'
+    file-renamed-label            = 'renamed:'
+    right-arrow                   = '⟶  '
+    hyperlinks                    = false
+    inspect-raw-lines             = true
+    keep-plus-minus-markers       = false
+    line-numbers                  = false
+    max-line-distance             = 0.6
+    max-line-length               = 3000
+    diff-stat-align-width         = 48
+    line-fill-method              = spaces
+    navigate                      = false
+    navigate-regex                = 
+    pager                         = none
+    paging                        = auto
+    side-by-side                  = false
+    syntax-theme                  = Monokai Extended
+    width                         = 80
+    tabs                          = 8
+    word-diff-regex               = '\w+'
+
+$ delta --show-config   # with the wide-review feature from chapter 7 in ~/.gitconfig
+    line-numbers                  = true
+    side-by-side                  = true
+
+$ delta --no-gitconfig --show-config   # the same machine, ignoring ~/.gitconfig
+    line-numbers                  = false
+    side-by-side                  = false

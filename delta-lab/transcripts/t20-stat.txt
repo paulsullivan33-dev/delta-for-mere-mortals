@@ -1,0 +1,12 @@
+$ git show --stat fa5b9a1
+commit fa5b9a19d2142be51ab1a118ecaacf770f5ee72e
+Author: Pat Gardener <pat@example.org>
+Date:   Wed Oct 28 11:34:56 2026 +0000
+
+    Seeds list, rename the watering script, make the planner executable
+
+ garden.py                    | 0
+ watering.sh => irrigation.sh | 2 +-
+ notes.txt                    | 5 -----
+ seeds.csv                    | 5 +++++
+ 4 files changed, 6 insertions(+), 6 deletions(-)

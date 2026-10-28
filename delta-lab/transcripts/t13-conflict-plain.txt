@@ -1,0 +1,17 @@
+$ git diff   # the same conflict, without delta
+diff --cc garden.py
+index fed1aa5,4644fa1..0000000
+--- a/garden.py
++++ b/garden.py
+@@@ -6,7 -6,7 +6,11 @@@ BEDS =
+      "south": ["beans", "squash"],
+  }
+
+++<<<<<<< HEAD
+ +WATER_LITRES_PER_BED = 3
+++=======
++ WATER_LITRES_PER_BED = 2
+++>>>>>>> winter
+
+
+  def watering_plan(day):

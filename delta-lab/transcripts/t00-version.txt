@@ -1,0 +1,2 @@
+$ delta --version
+delta 0.20.1

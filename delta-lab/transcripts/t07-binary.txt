@@ -1,0 +1,10 @@
+$ git show 88007f1
+commit 88007f119f96f4bb4045b8eca1297e3de6fb0870
+Author: Pat Gardener <pat@example.org>
+Date:   Wed Oct 28 11:34:57 2026 +0000
+
+    Replace the gate photo with a better scan
+
+
+gate.bin (binary file)
+────────────────────────────────────────────────────────────────────────────────────────────────────

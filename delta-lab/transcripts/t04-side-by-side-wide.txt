@@ -1,0 +1,37 @@
+$ git -c delta.features=side-by-side show f15ec93   # terminal 160 columns wide
+commit f15ec9342d7950172625d354570125c6cd6923c0
+Author: Pat Gardener <pat@example.org>
+Date:   Wed Oct 28 11:34:56 2026 +0000
+
+    Water less at a time, and only deep-water on Saturdays
+
+
+README.md
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+───────────────────────────────────────────────┐
+8: what was planted, where, and when to water. │
+───────────────────────────────────────────────┘
+│  8 │- North bed: tomatoes and peppers.                                        │  8 │- North bed: tomatoes and peppers.
+│  9 │- South bed: beans and squash.                                            │  9 │- South bed: beans and squash.
+│ 10 │                                                                          │ 10 │
+│ 11 │Water in the morning, before the sun is high.                             │ 11 │Water in the early morning, before the sun is high.
+
+garden.py
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+────────────┐
+6: BEDS = { │
+────────────┘
+│  6 │    "south": ["beans", "squash"],                                         │  6 │    "south": ["beans", "squash"],
+│  7 │}                                                                         │  7 │}
+│  8 │                                                                          │  8 │
+│  9 │WATER_LITRES_PER_BED = 6                                                  │  9 │WATER_LITRES_PER_BED = 4
+│ 10 │                                                                          │ 10 │
+│ 11 │                                                                          │ 11 │
+│ 12 │def watering_plan(day):                                                   │ 12 │def watering_plan(day):
+│ 13 │    if day in ("Saturday", "Sunday"):                                     │ 13 │    if day in ("Saturday",):
+│ 14 │        return "Water every bed deeply."                                  │ 14 │        return "Water every bed deeply, twice."
+│ 15 │    return "Check the soil and water if dry."                             │ 15 │    return "Check the soil and water if dry."
+│ 16 │                                                                          │ 16 │
+│ 17 │                                                                          │ 17 │

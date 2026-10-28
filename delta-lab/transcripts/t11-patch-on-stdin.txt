@@ -1,0 +1,32 @@
+$ delta < change.patch
+README.md
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+───────────────────────────────────────────────┐
+8: what was planted, where, and when to water. │
+───────────────────────────────────────────────┘
+- North bed: tomatoes and peppers.
+- South bed: beans and squash.
+
+Water in the morning, before the sun is high.
+Water in the early morning, before the sun is high.
+
+garden.py
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+────────────┐
+6: BEDS = { │
+────────────┘
+    "south": ["beans", "squash"],
+}
+
+WATER_LITRES_PER_BED = 6
+WATER_LITRES_PER_BED = 4
+
+
+def watering_plan(day):
+    if day in ("Saturday", "Sunday"):
+        return "Water every bed deeply."
+    if day in ("Saturday",):
+        return "Water every bed deeply, twice."
+    return "Check the soil and water if dry."

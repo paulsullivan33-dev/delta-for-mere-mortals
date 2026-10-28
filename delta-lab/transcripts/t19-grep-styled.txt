@@ -1,0 +1,5 @@
+$ git -c color.ui=always grep -n Water | delta   # delta recognises this
+README.md:11: Water in the early morning, before the sun is high.
+garden.py:14:         return "Water every bed deeply, twice."
+irrigation.sh:2:  # Water the beds named on the command line.
+irrigation.sh:4:      echo "Watering $bed"

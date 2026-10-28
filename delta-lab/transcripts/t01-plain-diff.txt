@@ -1,0 +1,35 @@
+$ git show f15ec93
+commit f15ec9342d7950172625d354570125c6cd6923c0
+Author: Pat Gardener <pat@example.org>
+Date:   Wed Oct 28 11:34:56 2026 +0000
+
+    Water less at a time, and only deep-water on Saturdays
+
+diff --git a/README.md b/README.md
+index 066b51e..f3db9b1 100644
+--- a/README.md
++++ b/README.md
+@@ -8,4 +8,4 @@ what was planted, where, and when to water.
+ - North bed: tomatoes and peppers.
+ - South bed: beans and squash.
+
+-Water in the morning, before the sun is high.
++Water in the early morning, before the sun is high.
+diff --git a/garden.py b/garden.py
+index bdbea3a..79ad48d 100644
+--- a/garden.py
++++ b/garden.py
+@@ -6,12 +6,12 @@ BEDS = {
+     "south": ["beans", "squash"],
+ }
+
+-WATER_LITRES_PER_BED = 6
++WATER_LITRES_PER_BED = 4
+
+
+ def watering_plan(day):
+-    if day in ("Saturday", "Sunday"):
+-        return "Water every bed deeply."
++    if day in ("Saturday",):
++        return "Water every bed deeply, twice."
+     return "Check the soil and water if dry."

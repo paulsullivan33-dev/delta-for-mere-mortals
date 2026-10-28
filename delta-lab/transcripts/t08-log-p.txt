@@ -1,0 +1,32 @@
+$ git log -p -2
+commit f8423c77b50d39808eb13db6174e3245f8bfd51c (HEAD -> main)
+Author: Pat Gardener <pat@example.org>
+Date:   Wed Oct 28 11:34:57 2026 +0000
+
+    Split the difference: three litres a bed
+
+
+garden.py
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+────────────┐
+6: BEDS = { │
+────────────┘
+    "south": ["beans", "squash"],
+}
+
+WATER_LITRES_PER_BED = 4
+WATER_LITRES_PER_BED = 3
+
+
+def watering_plan(day):
+
+commit 88007f119f96f4bb4045b8eca1297e3de6fb0870
+Author: Pat Gardener <pat@example.org>
+Date:   Wed Oct 28 11:34:57 2026 +0000
+
+    Replace the gate photo with a better scan
+
+
+gate.bin (binary file)
+────────────────────────────────────────────────────────────────────────────────────────────────────

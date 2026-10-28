@@ -1,0 +1,131 @@
+$ git show fa5b9a1   # inside less, with delta navigate = true; screens from a terminal emulator
+
+===== screen A (first paint) =====
+ 0|commit fa5b9a19d2142be51ab1a118ecaacf770f5ee72e
+ 1|Author: Pat Gardener <pat@example.org>
+ 2|Date:   Wed Oct 28 11:34:56 2026 +0000
+ 3|
+ 4|    Seeds list, rename the watering script, make the planner executable
+ 5|
+ 6|
+ 7|Δ garden.py (mode +x)
+ 8|────────────────────────────────────────────────────────────────────────────────────────────────────
+ 9|
+10|renamed: watering.sh ⟶   irrigation.sh
+11|────────────────────────────────────────────────────────────────────────────────────────────────────
+12|
+13|─────┐
+14|• 1: │
+15|─────┘
+16|#!/bin/sh
+17|# Water the beds listed on the command line.
+18|# Water the beds named on the command line.
+19|for bed in "$@"; do
+20|    echo "Watering $bed"
+21|done
+22|
+23|removed: notes.txt
+24|────────────────────────────────────────────────────────────────────────────────────────────────────
+25|
+26|─────┐
+27|• 0: │
+28|─────┘
+29|:
+
+===== screen B (after n) =====
+ 0|Δ garden.py (mode +x)
+ 1|────────────────────────────────────────────────────────────────────────────────────────────────────
+ 2|
+ 3|renamed: watering.sh ⟶   irrigation.sh
+ 4|────────────────────────────────────────────────────────────────────────────────────────────────────
+ 5|
+ 6|─────┐
+ 7|• 1: │
+ 8|─────┘
+ 9|#!/bin/sh
+10|# Water the beds listed on the command line.
+11|# Water the beds named on the command line.
+12|for bed in "$@"; do
+13|    echo "Watering $bed"
+14|done
+15|
+16|removed: notes.txt
+17|────────────────────────────────────────────────────────────────────────────────────────────────────
+18|
+19|─────┐
+20|• 0: │
+21|─────┘
+22|Spring notes
+23|
+24|Order more twine.
+25|The fence post by the gate leans a little more each year.
+26|Ask the neighbour about the spare cold frame.
+27|
+28|added: seeds.csv
+29|:
+
+===== screen C (after n again) =====
+ 0|renamed: watering.sh ⟶   irrigation.sh
+ 1|────────────────────────────────────────────────────────────────────────────────────────────────────
+ 2|
+ 3|─────┐
+ 4|• 1: │
+ 5|─────┘
+ 6|#!/bin/sh
+ 7|# Water the beds listed on the command line.
+ 8|# Water the beds named on the command line.
+ 9|for bed in "$@"; do
+10|    echo "Watering $bed"
+11|done
+12|
+13|removed: notes.txt
+14|────────────────────────────────────────────────────────────────────────────────────────────────────
+15|
+16|─────┐
+17|• 0: │
+18|─────┘
+19|Spring notes
+20|
+21|Order more twine.
+22|The fence post by the gate leans a little more each year.
+23|Ask the neighbour about the spare cold frame.
+24|
+25|added: seeds.csv
+26|────────────────────────────────────────────────────────────────────────────────────────────────────
+27|
+28|─────┐
+29|:
+
+===== screen D (after N, back) =====
+ 0|Δ garden.py (mode +x)
+ 1|────────────────────────────────────────────────────────────────────────────────────────────────────
+ 2|
+ 3|renamed: watering.sh ⟶   irrigation.sh
+ 4|────────────────────────────────────────────────────────────────────────────────────────────────────
+ 5|
+ 6|─────┐
+ 7|• 1: │
+ 8|─────┘
+ 9|#!/bin/sh
+10|# Water the beds listed on the command line.
+11|# Water the beds named on the command line.
+12|for bed in "$@"; do
+13|    echo "Watering $bed"
+14|done
+15|
+16|removed: notes.txt
+17|────────────────────────────────────────────────────────────────────────────────────────────────────
+18|
+19|─────┐
+20|• 0: │
+21|─────┘
+22|Spring notes
+23|
+24|Order more twine.
+25|The fence post by the gate leans a little more each year.
+26|Ask the neighbour about the spare cold frame.
+27|
+28|added: seeds.csv
+29|:
+
+git/delta/less exit: 0

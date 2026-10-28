@@ -1,0 +1,30 @@
+$ git add -p
+diff --git a/README.md b/README.md
+index f3db9b1..9b1eef0 100644
+--- a/README.md
++++ b/README.md
+@@ -6,6 +6,6 @@ what was planted, where, and when to water.
+ ## Beds
+
+ - North bed: tomatoes and peppers.
+-- South bed: beans and squash.
++- South bed: beans, squash and sweetcorn.
+
+ Water in the early morning, before the sun is high.
+(1/1) Stage this hunk [y,n,q,a,d,e,?]? y
+n
+
+diff --git a/garden.py b/garden.py
+index fed1aa5..abe268d 100755
+--- a/garden.py
++++ b/garden.py
+@@ -6,7 +6,7 @@ BEDS = {
+     "south": ["beans", "squash"],
+ }
+
+-WATER_LITRES_PER_BED = 3
++WATER_LITRES_PER_BED = 5
+
+
+ def watering_plan(day):
+(1/1) Stage this hunk [y,n,q,a,d,e,?]?

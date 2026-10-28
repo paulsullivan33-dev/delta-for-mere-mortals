@@ -1,0 +1,95 @@
+The lab — one real install, one fixture, no real gardens
+====================================================================
+
+The lab is delta as the project ships it, the official release
+tarball unpacked into a scratch directory on the build machine
+(an Ubuntu 24.04 sandbox, 2 CPUs, 7.7 GB RAM):
+
+  * delta 0.20.1 (dandavison/delta, x86_64-unknown-linux-gnu),
+    git 2.43.0, less 590.
+  * A fixture repository built by delta-lab/make-fixture.sh:
+    a tiny garden planner, six commits — within-line edits;
+    an add, a delete, a rename and a mode change in one
+    commit; a binary file added and replaced; a merge
+    conflict rehearsed between branches main and winter.
+  * Captures were made in a pseudo-terminal at fixed widths
+    (80/100/160 columns), TERM=xterm-256color, with the pager
+    set to print in full (PAGER=cat) except where the pager
+    itself was the subject. Plain-text transcripts strip the
+    escape codes; this file keeps what the escapes said.
+
+THE COLOUR EVIDENCE (chapter 5)
+--------------------------------------------------------------------
+From the raw bytes of the default render (t02), 256-colour
+palette indices, SGR sequences as emitted:
+
+  removed line, whole line        background 48;5;52
+  removed line, changed token     background 48;5;124
+  added line, whole line          background 48;5;22
+  added line, changed token       background 48;5;28
+  added line, syntax colours      e.g. "=" in 38;5;203,
+                                  a number in 38;5;141
+  removed line, syntax colours    none: foreground stays
+                                  plain on the red
+
+That is delta --show-config's own account, measured instead of
+trusted: minus-style "normal 52", minus-emph-style "normal
+124", plus-style "syntax 22", plus-emph-style "syntax 28".
+Under --syntax-theme Dracula the same added line kept every
+background and changed one syntax colour (the "=" went
+203 -> 212): the two palettes are separate layers (chapter 8).
+With hyperlinks = true the file headers carried OSC 8
+sequences, 8 of them in a two-file diff, each of the form
+ESC ] 8 ;; file:///…/garden/README.md …
+
+PIPES, MEASURED (chapters 2 and 14)
+--------------------------------------------------------------------
+  git show <c> | cat     git never starts the pager; the
+                         output is the raw diff, delta or no
+                         delta in the config.
+  git show <c> | delta   delta DOES decorate into a pipe when
+                         invoked by hand: colours, headers and
+                         all, at a fallback width of 80.
+  escape census, PTY render of the same commit:
+                         default 130 ESC bytes,
+                         NO_COLOR=1 also 130,
+                         TERM=dumb 125.
+  git --no-pager show    the raw diff, byte for byte git's own.
+
+THE NAVIGATE INVESTIGATION (chapters 12 and 15)
+--------------------------------------------------------------------
+Two attempts to make the pager's n key jump between files
+failed with less answering "No previous regular expression".
+Root cause, found with delta --show-config: the lab had been
+exporting its test configuration through the GIT_CONFIG_GLOBAL
+environment variable. Git honoured it; delta, which reads the
+standard git configuration files, never saw the [delta]
+section at all — navigate was never on. (Plain git features of
+the same file, like core.pager, had worked, because GIT runs
+delta; the [delta] options are read BY delta.) With the same
+file as ~/.gitconfig, --show-config reported navigate = true
+and a terminal emulator (pyte) then recorded the screens in
+transcript t21: n to the first file header, n to the second,
+N back. The hunk/file sections carry a small bullet marker;
+that marker is what less's pre-loaded search pattern hunts.
+
+SMALLER FINDINGS
+--------------------------------------------------------------------
+  * delta change.patch with the terminal attached prints
+    delta's hint ("The main way to use delta is to configure
+    it as the pager for git … You can also use delta to diff
+    two files: `delta file_A file_B`.") and with standard
+    input closed it exits 0 in silence. Neither renders the
+    patch. delta < change.patch renders it, commit header
+    included.
+  * git grep -n piped to delta passes through plain (delta
+    emits its terminal colour queries — OSC 10/11 — and then
+    declines to guess). With git's colours forced
+    (color.ui=always) the same lines render in grep format:
+    file 35 (purple), line number 32 (green), the match on
+    background 48;5;28, code syntax-coloured.
+  * The fixture's first binary specimen was written with
+    printf '\x00', which the shell printed literally: git
+    quite correctly diffed it as text. Rebuilt with octal
+    escapes (real NUL bytes); file(1) now calls it "data"
+    and delta's header calls it "(binary file)".

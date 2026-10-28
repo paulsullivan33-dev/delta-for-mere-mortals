@@ -1,0 +1,57 @@
+delta — the distilled commands
+====================================================================
+Placeholders: <commit> is a commit hash or ref;
+<file> is a path. Everything assumes chapter 4's
+wiring is in ~/.gitconfig unless shown otherwise.
+
+FIRST CONTACT (chapters 3-4)
+--------------------------------------------------------------------
+  delta --version
+  git config --global core.pager delta
+  git config --global interactive.diffFilter 'delta --color-only'
+  git config --global delta.navigate true
+  sh delta-lab/make-fixture.sh garden   # the lab's fixture repo
+  git show <commit>                     # painted
+  git --no-pager show <commit>          # raw: delta never called
+
+READING (chapters 5-6)
+--------------------------------------------------------------------
+  git -c delta.features=line-numbers show <commit>
+  git -c delta.features=side-by-side show <commit>   # wide terminal
+  git -c delta.keep-plus-minus-markers=true show <commit>
+                                   # the - and + signs, restored
+
+CONFIGURATION (chapters 7-8)
+--------------------------------------------------------------------
+  delta --show-config              # what delta actually believes
+  delta --no-gitconfig --show-config
+                                   # the same, ignoring ~/.gitconfig
+  delta --list-syntax-themes       # 28 in the lab
+  delta --list-languages           # 198 in the lab
+  git -c delta.syntax-theme=Dracula show <commit>
+  delta --dark / delta --light     # override the background guess
+
+  # a named feature set of your own, in ~/.gitconfig:
+  #   [delta]
+  #       features = wide-review
+  #   [delta "wide-review"]
+  #       line-numbers = true
+  #       side-by-side = true
+
+EVERYWHERE ELSE (chapters 9-11)
+--------------------------------------------------------------------
+  git log -p                       # diffs painted, prose plain
+  git config --global pager.blame delta
+  git blame <file>                 # columns: age, author, hash
+  git -c color.ui=always grep -n <word> | delta
+                                   # grep, painted (colours must
+                                   # be forced on, chapter 9)
+  git add -p                       # hunks via --color-only filter
+  git diff                         # mid-conflict: the labelled fence
+
+THE FRONT DOOR (chapter 12)
+--------------------------------------------------------------------
+  delta old.py new.py              # two loose files, diffed
+  delta < change.patch             # a patch, painted
+  # NOT: delta change.patch        # a lone name is not a patch
+  # inside less, with navigate on:  n  next file,  N  previous

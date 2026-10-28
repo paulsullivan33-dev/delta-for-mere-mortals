@@ -1,0 +1,20 @@
+$ delta garden-v1.py garden-v2.py
+garden-v1.py ⟶   garden-v2.py
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+────────────┐
+6: BEDS = { │
+────────────┘
+    "south": ["beans", "squash"],
+}
+
+WATER_LITRES_PER_BED = 6
+WATER_LITRES_PER_BED = 4
+
+
+def watering_plan(day):
+    if day in ("Saturday", "Sunday"):
+        return "Water every bed deeply."
+    if day in ("Saturday",):
+        return "Water every bed deeply, twice."
+    return "Check the soil and water if dry."

@@ -1,0 +1,26 @@
+$ git -c pager.blame=delta blame garden.py
+21 seconds ago  Pat Gardener    ^e55829f│  1 │ #!/usr/bin/env python3
+                                        │  2 │ """Garden planner: beds, seeds and watering."""
+                                        │  3 │
+                                        │  4 │ BEDS = {
+                                        │  5 │     "north": ["tomatoes", "peppers"],
+                                        │  6 │     "south": ["beans", "squash"],
+                                        │  7 │ }
+                                        │  8 │
+20 seconds ago  Pat Gardener    f8423c77│  9 │ WATER_LITRES_PER_BED = 3
+21 seconds ago  Pat Gardener    ^e55829f│ 10 │
+                                        │ 11 │
+                                        │ 12 │ def watering_plan(day):
+21 seconds ago  Pat Gardener    f15ec934│ 13 │     if day in ("Saturday",):
+                                        │ 14 │         return "Water every bed deeply, twice."
+21 seconds ago  Pat Gardener    ^e55829f│ 15 │     return "Check the soil and water if dry."
+                                        │ 16 │
+                                        │ 17 │
+                                        │ 18 │ def main():
+                                        │ 19 │     for bed, crops in BEDS.items():
+                                        │ 20 │         print(f"{bed}: {', '.join(crops)}")
+                                        │ 21 │     print(watering_plan("Saturday"))
+                                        │ 22 │
+                                        │ 23 │
+                                        │ 24 │ if __name__ == "__main__":
+                                        │ 25 │     main()

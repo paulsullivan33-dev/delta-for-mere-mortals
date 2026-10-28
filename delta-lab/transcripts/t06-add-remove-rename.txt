@@ -1,0 +1,47 @@
+$ git show fa5b9a1
+commit fa5b9a19d2142be51ab1a118ecaacf770f5ee72e
+Author: Pat Gardener <pat@example.org>
+Date:   Wed Oct 28 11:34:56 2026 +0000
+
+    Seeds list, rename the watering script, make the planner executable
+
+
+garden.py (mode +x)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+renamed: watering.sh ⟶   irrigation.sh
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+───┐
+1: │
+───┘
+#!/bin/sh
+# Water the beds listed on the command line.
+# Water the beds named on the command line.
+for bed in "$@"; do
+    echo "Watering $bed"
+done
+
+removed: notes.txt
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+───┐
+0: │
+───┘
+Spring notes
+
+Order more twine.
+The fence post by the gate leans a little more each year.
+Ask the neighbour about the spare cold frame.
+
+added: seeds.csv
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+───┐
+1: │
+───┘
+seed,bed,month
+tomato,north,March
+pepper,north,April
+bean,south,May
+squash,south,May

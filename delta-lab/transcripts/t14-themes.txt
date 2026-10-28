@@ -1,0 +1,32 @@
+$ delta --list-syntax-themes
+dark	1337
+dark	Catppuccin Frappe
+dark	Catppuccin Macchiato
+dark	Catppuccin Mocha
+dark	Coldark-Cold
+dark	Coldark-Dark
+dark	DarkNeon
+dark	Dracula
+dark	Monokai Extended
+dark	Monokai Extended Bright
+dark	Monokai Extended Origin
+dark	Nord
+dark	OneHalfDark
+dark	Solarized (dark)
+dark	Sublime Snazzy
+dark	TwoDark
+dark	Visual Studio Dark+
+dark	ansi
+dark	base16
+dark	base16-256
+dark	gruvbox-dark
+dark	zenburn
+light	Catppuccin Latte
+light	GitHub
+light	Monokai Extended Light
+light	OneHalfLight
+light	Solarized (light)
+light	gruvbox-light
+
+$ delta --list-languages | wc -l
+198
